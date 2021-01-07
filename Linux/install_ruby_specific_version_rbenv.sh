@@ -5,7 +5,7 @@
 export RUBY_VERSION=2.2.6
 
 # Installing dependencies
-apt update && apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
+apt update && apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev libsqlite3-dev
 
 # Copying rbenv - rbenv and ruby-build repositories from GitHub to ~/.rbenv directory.
 curl -sL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash -
