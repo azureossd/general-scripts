@@ -1,7 +1,7 @@
 # Important
 # Run "sudo su" before running this script or give access to your user.
 
-# Selecting Ruby version
+# Set a specific Ruby version
 export RUBY_VERSION=2.2.6
 
 # Installing dependencies
