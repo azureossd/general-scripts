@@ -2,7 +2,7 @@
 
 # Prerequisites -  NodeJS 
 
-echo "##### Runnig script under $custom_user #####"
+echo "##### Runnig script under $USER #####"
 
 # Set a specific Ruby version
 export RUBY_VERSION=2.6.2 
@@ -19,13 +19,13 @@ sudo apt-get install -y nodejs
 # Copying rbenv - rbenv and ruby-build repositories from GitHub to ~/.rbenv directory.
 
 cd /usr/local
-git clone https://github.com/rbenv/rbenv.git rbenv
+sudo git clone https://github.com/rbenv/rbenv.git rbenv
 chmod -R g+rwxXs rbenv
 
 export RBENV_ROOT=/usr/local/rbenv
 export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"
-git clone https://github.com/rbenv/ruby-build.git $RBENV_ROOT/plugins/ruby-build
+sudo git clone https://github.com/rbenv/ruby-build.git $RBENV_ROOT/plugins/ruby-build
 
 #git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 #echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
