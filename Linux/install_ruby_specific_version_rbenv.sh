@@ -1,32 +1,25 @@
 #!/bin/bash
-# Important
-# Run "sudo su" before running this script or give access to your user.
-# Prerequisites -  NodeJS 
 
-u="$USER"
-echo "#####User name $u #####"
-sudo usermod -aG sudo $u
+# Prerequisites -  NodeJS 
 
 h=$HOME
 echo "##### Using $HOME #####"
-
-# Installing nodejs
-curl -sL https://deb.nodesource.com/setup_14.x | bash - 
-apt-get install -y nodejs 
 
 # Set a specific Ruby version
 export RUBY_VERSION=2.6.2 
 
 echo "##### Installing Dependencies #####" 
 # Installing dependencies
-apt update 
-apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev libsqlite3-dev 
+sudo apt update 
+sudo apt install -y curl git autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev libsqlite3-dev
+
+# Installing nodejs
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - 
+sudo apt-get install -y nodejs 
 
 # Copying rbenv - rbenv and ruby-build repositories from GitHub to ~/.rbenv directory.
-curl -sL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash - 
-
-# Adding rbenv bin directory to user PATH
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc 
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 source ~/.bashrc
 
