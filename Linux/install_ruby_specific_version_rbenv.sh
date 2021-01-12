@@ -32,11 +32,11 @@ source ~/.bashrc
 
 echo "##### Installing Ruby and set it global #####" 
 # Install Ruby version and set it to default version
-rbenv install $RUBY_VERSION >> $logpath
-rbenv global $RUBY_VERSION >> $logpath
+rbenv install $RUBY_VERSION 
+rbenv global $RUBY_VERSION 
 
 # Checking Ruby version
-ruby -v >> $logpath
+ruby -v 
 
 # In case it fails with The Ruby openssl extension was not compiled used the following config.
 # export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/lib/ssl"
