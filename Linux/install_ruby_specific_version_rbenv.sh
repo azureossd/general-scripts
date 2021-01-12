@@ -1,10 +1,11 @@
+#!/bin/bash
 # Important
 # Run "sudo su" before running this script or give access to your user.
 # Prerequisites 
 
 logpath=/var/log/deploymentScriptLog
 
-echo "##### Installing NodeJS #####" >> $logpath
+sudo echo "##### Installing NodeJS #####" >> $logpath
 # Installing nodejs
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - >> $logpath
 sudo apt-get install -y nodejs >> $logpath
@@ -12,7 +13,7 @@ sudo apt-get install -y nodejs >> $logpath
 # Set a specific Ruby version
 export RUBY_VERSION=2.6.2 
 
-echo "##### Installing Dependencies #####" >> $logpath
+sudo echo "##### Installing Dependencies #####" >> $logpath
 # Installing dependencies
 sudo apt update >> $logpath
 sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev libsqlite3-dev >> $logpath
@@ -25,6 +26,7 @@ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 source ~/.bashrc
 
+sudo echo "##### Installing Ruby and set it global #####" >> $logpath
 # Install Ruby version and set it to default version
 sudo rbenv install $RUBY_VERSION >> $logpath
 sudo rbenv global $RUBY_VERSION >> $logpath
