@@ -11,7 +11,6 @@ h=$HOME
 echo $HOME
 logpath=$h . "/deploymentScriptLog"
 
-
 sudo echo "##### Installing NodeJS #####" >> $logpath
 # Installing nodejs
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - >> $logpath
