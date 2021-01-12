@@ -17,16 +17,23 @@ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs 
 
 # Copying rbenv - rbenv and ruby-build repositories from GitHub.
-sudo git clone https://github.com/rbenv/rbenv.git /usr/local/rbenv
 
-sudo echo '# rbenv setup' > /etc/profile.d/rbenv.sh
-sudo echo 'export RBENV_ROOT=/usr/local/rbenv' >> /etc/profile.d/rbenv.sh
-sudo echo 'export PATH="$RBENV_ROOT/bin:$PATH"' >> /etc/profile.d/rbenv.sh
-sudo echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh
-sudo chmod +x /etc/profile.d/rbenv.sh
-sudo source /etc/profile.d/rbenv.sh
+sudo groupadd rubyusers
+sudo usermod -a -G rubyusers $USER
+sudo chgrp -R rubyusers /var/opt/rbenv/
+sudo chmod 0775 /var/opt/rbenv
+sudo chmod g+s -R /var/opt/rbenv/
 
-sudo git clone https://github.com/rbenv/ruby-build.git /usr/local/rbenv/plugins/ruby-build
+sudo git clone https://github.com/rbenv/rbenv.git  /var/opt/rbenv
+
+echo 'export RBENV_ROOT=/var/opt/rbenv' | sudo tee -a '/etc/profile.d/rbenv.sh'
+echo 'export PATH=$RBENV_ROOT/bin:$PATH' | sudo tee -a '/etc/profile.d/rbenv.sh'
+echo 'eval "$(rbenv init -)"' | sudo tee -a '/etc/profile.d/rbenv.sh'
+sudo chgrp rubyusers /etc/profile.d/rbenv.sh
+sudo chmod 0660 /etc/profile.d/rbenv.sh
+source /etc/profile.d/rbenv.sh
+
+sudo git clone https://github.com/rbenv/ruby-build.git /var/opt/rbenv/plugins/ruby-build
 
 echo "##### Installing Ruby and set it global #####" 
 # Install Ruby version and set it to default version
