@@ -2,6 +2,7 @@
 # Important
 # Run "sudo su" before running this script or give access to your user.
 # Prerequisites 
+# NodeJS 
 
 u="$USER"
 echo "User name $u"
