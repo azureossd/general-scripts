@@ -8,11 +8,11 @@ echo "User name $u"
 sudo usermod -aG sudo $u
 
 h=$HOME
-echo $HOME
 logpath=$h . "/deployment_log.txt"
-touch logpath
-chmod ugo+rwx logpath
-sudo chmod 775 logpath
+echo $logpath
+touch $logpath
+chmod ugo+rwx $logpath
+sudo chmod 775 $logpath
 
 sudo echo "##### Installing NodeJS #####" >> $logpath
 # Installing nodejs
