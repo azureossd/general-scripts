@@ -20,7 +20,7 @@ sudo apt-get install -y nodejs
 
 cd /usr/local
 sudo git clone https://github.com/rbenv/rbenv.git rbenv
-chmod -R g+rwxXs rbenv
+sudo chmod -R 755 rbenv
 
 export RBENV_ROOT=/usr/local/rbenv
 export PATH="$RBENV_ROOT/bin:$PATH"
@@ -35,8 +35,8 @@ sudo git clone https://github.com/rbenv/ruby-build.git $RBENV_ROOT/plugins/ruby-
 
 echo "##### Installing Ruby and set it global #####" 
 # Install Ruby version and set it to default version
-rbenv install $RUBY_VERSION 
-rbenv global $RUBY_VERSION 
+sudo rbenv install $RUBY_VERSION 
+sudo rbenv global $RUBY_VERSION 
 
 # Checking Ruby version
 ruby -v 
