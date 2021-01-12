@@ -4,12 +4,12 @@
 
  if [ "$#" -eq  "0" ]
    then
-     user=$user
+     custom_user=$USER
  else
-     user=$1
+     custom_user=$1
  fi
 
-sudo -u user
+sudo -u $custom_user
 echo "##### Using $HOME #####"
 
 # Set a specific Ruby version
