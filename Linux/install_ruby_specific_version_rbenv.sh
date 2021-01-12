@@ -2,7 +2,14 @@
 
 # Prerequisites -  NodeJS 
 
-h=$HOME
+ if [ "$#" -eq  "0" ]
+   then
+     user=$user
+ else
+     user=$1
+ fi
+
+sudo -u user
 echo "##### Using $HOME #####"
 
 # Set a specific Ruby version
