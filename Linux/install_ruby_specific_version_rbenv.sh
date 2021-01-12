@@ -1,8 +1,7 @@
 #!/bin/bash
 # Important
 # Run "sudo su" before running this script or give access to your user.
-# Prerequisites 
-# NodeJS 
+# Prerequisites -  NodeJS 
 
 u="$USER"
 echo "User name $u"
@@ -11,6 +10,8 @@ sudo usermod -aG sudo $u
 h=$HOME
 echo $HOME
 logpath=$h . "/deploymentScriptLog"
+
+sudo chmod 775 logpath
 
 sudo echo "##### Installing NodeJS #####" >> $logpath
 # Installing nodejs
