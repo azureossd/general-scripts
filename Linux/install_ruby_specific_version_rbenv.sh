@@ -9,8 +9,8 @@
      custom_user=$1
  fi
 
-sudo -u $custom_user
-echo "##### Using $HOME #####"
+sudo su - $custom_user
+echo "##### Runnig script under $custom_user #####"
 
 # Set a specific Ruby version
 export RUBY_VERSION=2.6.2 
