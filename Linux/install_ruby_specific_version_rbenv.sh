@@ -3,6 +3,10 @@
 # Run "sudo su" before running this script or give access to your user.
 # Prerequisites 
 
+u="$USER"
+echo "User name $u"
+sudo usermod -aG sudo $u
+
 logpath=/var/log/deploymentScriptLog
 
 sudo echo "##### Installing NodeJS #####" >> $logpath
