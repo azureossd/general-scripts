@@ -11,19 +11,19 @@ h=$HOME
 echo "##### Using $HOME #####"
 
 # Installing nodejs
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - 
-sudo apt-get install -y nodejs 
+curl -sL https://deb.nodesource.com/setup_14.x | bash - 
+apt-get install -y nodejs 
 
 # Set a specific Ruby version
 export RUBY_VERSION=2.6.2 
 
 echo "##### Installing Dependencies #####" 
 # Installing dependencies
-sudo apt update 
-sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev libsqlite3-dev 
+apt update 
+apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev libsqlite3-dev 
 
 # Copying rbenv - rbenv and ruby-build repositories from GitHub to ~/.rbenv directory.
-curl -sL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | sudo bash - 
+curl -sL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash - 
 
 # Adding rbenv bin directory to user PATH
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc 
@@ -32,8 +32,8 @@ source ~/.bashrc
 
 echo "##### Installing Ruby and set it global #####" 
 # Install Ruby version and set it to default version
-sudo rbenv install $RUBY_VERSION >> $logpath
-sudo rbenv global $RUBY_VERSION >> $logpath
+rbenv install $RUBY_VERSION >> $logpath
+rbenv global $RUBY_VERSION >> $logpath
 
 # Checking Ruby version
 ruby -v >> $logpath
