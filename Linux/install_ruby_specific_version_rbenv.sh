@@ -9,7 +9,7 @@ sudo usermod -aG sudo $u
 
 h=$HOME
 echo $HOME
-logpath=$h + "/deploymentScriptLog"
+logpath=$h . "/deploymentScriptLog"
 
 
 sudo echo "##### Installing NodeJS #####" >> $logpath
