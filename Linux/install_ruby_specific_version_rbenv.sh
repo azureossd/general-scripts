@@ -17,11 +17,21 @@ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs 
 
 # Copying rbenv - rbenv and ruby-build repositories from GitHub to ~/.rbenv directory.
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-. ~/.bashrc
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+cd /usr/local
+git clone https://github.com/rbenv/rbenv.git rbenv
+chmod -R g+rwxXs rbenv
+
+export RBENV_ROOT=/usr/local/rbenv
+export PATH="$RBENV_ROOT/bin:$PATH"
+eval "$(rbenv init -)"
+git clone https://github.com/rbenv/ruby-build.git $RBENV_ROOT/plugins/ruby-build
+
+#git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+#echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+#echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+#. ~/.bashrc
+#git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 echo "##### Installing Ruby and set it global #####" 
 # Install Ruby version and set it to default version
