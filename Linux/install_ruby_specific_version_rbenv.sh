@@ -16,27 +16,22 @@ sudo apt install -y curl git autoconf bison build-essential libssl-dev libyaml-d
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - 
 sudo apt-get install -y nodejs 
 
-# Copying rbenv - rbenv and ruby-build repositories from GitHub to ~/.rbenv directory.
+# Copying rbenv - rbenv and ruby-build repositories from GitHub.
+git clone https://github.com/rbenv/rbenv.git /usr/local/rbenv
 
-cd /usr/local
-sudo git clone https://github.com/rbenv/rbenv.git rbenv
-sudo chmod -R 755 rbenv
+echo '# rbenv setup' > /etc/profile.d/rbenv.sh
+echo 'export RBENV_ROOT=/usr/local/rbenv' >> /etc/profile.d/rbenv.sh
+echo 'export PATH="$RBENV_ROOT/bin:$PATH"' >> /etc/profile.d/rbenv.sh
+echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh
+chmod +x /etc/profile.d/rbenv.sh
+source /etc/profile.d/rbenv.sh
 
-export RBENV_ROOT=/usr/local/rbenv
-export PATH="$RBENV_ROOT/bin:$PATH"
-eval "$(rbenv init -)"
-sudo git clone https://github.com/rbenv/ruby-build.git $RBENV_ROOT/plugins/ruby-build
-
-#git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-#echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-#echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-#. ~/.bashrc
-#git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone https://github.com/rbenv/ruby-build.git /usr/local/rbenv/plugins/ruby-build
 
 echo "##### Installing Ruby and set it global #####" 
 # Install Ruby version and set it to default version
-sudo rbenv install $RUBY_VERSION 
-sudo rbenv global $RUBY_VERSION 
+rbenv install $RUBY_VERSION 
+rbenv global $RUBY_VERSION 
 
 # Checking Ruby version
 ruby -v 
