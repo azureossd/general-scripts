@@ -2,14 +2,6 @@
 
 # Prerequisites -  NodeJS 
 
- if [ "$#" -eq  "0" ]
-   then
-     custom_user=$USER
- else
-     custom_user=$1
- fi
-
-sudo su - $custom_user
 echo "##### Runnig script under $custom_user #####"
 
 # Set a specific Ruby version
