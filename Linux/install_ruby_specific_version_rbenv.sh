@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Prerequisites -  NodeJS 
 
@@ -18,20 +18,21 @@ sudo apt-get install -y nodejs
 
 # Copying rbenv - rbenv and ruby-build repositories from GitHub.
 
+sudo git clone https://github.com/rbenv/rbenv.git  /var/opt/rbenv
+
 sudo groupadd rubyusers
 sudo usermod -a -G rubyusers $USER
 sudo chgrp -R rubyusers /var/opt/rbenv/
 sudo chmod 0775 /var/opt/rbenv
 sudo chmod g+s -R /var/opt/rbenv/
 
-sudo git clone https://github.com/rbenv/rbenv.git  /var/opt/rbenv
-
 echo 'export RBENV_ROOT=/var/opt/rbenv' | sudo tee -a '/etc/profile.d/rbenv.sh'
 echo 'export PATH=$RBENV_ROOT/bin:$PATH' | sudo tee -a '/etc/profile.d/rbenv.sh'
 echo 'eval "$(rbenv init -)"' | sudo tee -a '/etc/profile.d/rbenv.sh'
 sudo chgrp rubyusers /etc/profile.d/rbenv.sh
-sudo chmod 0660 /etc/profile.d/rbenv.sh
+sudo chmod +x /etc/profile.d/rbenv.sh
 source /etc/profile.d/rbenv.sh
+
 
 sudo git clone https://github.com/rbenv/ruby-build.git /var/opt/rbenv/plugins/ruby-build
 
