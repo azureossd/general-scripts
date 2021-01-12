@@ -7,7 +7,9 @@ u="$USER"
 echo "User name $u"
 sudo usermod -aG sudo $u
 
-logpath=/var/log/deploymentScriptLog
+h=$HOME
+echo $HOME
+logpath=$h + "/deploymentScriptLog"
 
 sudo echo "##### Installing NodeJS #####" >> $logpath
 # Installing nodejs
