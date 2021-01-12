@@ -1,5 +1,5 @@
 #!/bin/sh
-
+# After running this script with  sudo sh install_ruby_specific_version_rbenv.sh use sudo su to use ruby.
 # Prerequisites -  NodeJS 
 
 echo "##### Runnig script under $USER #####"
@@ -25,7 +25,7 @@ echo 'export RBENV_ROOT=/var/opt/rbenv' | sudo tee -a '/etc/profile.d/rbenv.sh'
 echo 'export PATH=$RBENV_ROOT/bin:$PATH' | sudo tee -a '/etc/profile.d/rbenv.sh'
 echo 'eval "$(rbenv init -)"' | sudo tee -a '/etc/profile.d/rbenv.sh'
 sudo chmod +x /etc/profile.d/rbenv.sh
-source /etc/profile.d/rbenv.sh
+. /etc/profile.d/rbenv.sh
 
 sudo git clone https://github.com/rbenv/ruby-build.git /var/opt/rbenv/plugins/ruby-build
 
