@@ -1,6 +1,5 @@
 #!/bin/sh
 # After running this script with  sudo sh install_ruby_specific_version_rbenv.sh use sudo su to use ruby.
-# Prerequisites -  NodeJS 
 
 echo "##### Runnig script under $USER #####"
 
