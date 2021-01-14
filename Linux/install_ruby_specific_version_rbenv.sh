@@ -6,7 +6,10 @@ echo "##### Runnig script under $1 #####"
 # Set a specific Ruby version
 export RUBY_VERSION=2.6.2 
 
-echo "##### Installing NodeJS #####" 
+echo "##### Installing NodeJS and Yarn #####" 
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
 # Installing dependencies
 sudo apt-get update 
 sleep 15
@@ -14,6 +17,9 @@ sleep 15
 # Installing nodejs
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - 
 sudo apt-get install -y nodejs 
+
+# Installing yarn
+sudo apt install yarn
 
 echo "##### Installing Dependencies #####" 
 # Installing dependencies
