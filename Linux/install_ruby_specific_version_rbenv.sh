@@ -1,7 +1,7 @@
 #!/bin/sh
 # After running this script with  sudo sh install_ruby_specific_version_rbenv.sh use sudo su to use ruby.
 
-echo "##### Runnig script under $USER #####"
+echo "##### Runnig script under $1 #####"
 
 # Set a specific Ruby version
 export RUBY_VERSION=2.6.2 
