@@ -19,7 +19,6 @@ sudo apt-get install -y nodejs
 
 sudo git clone https://github.com/rbenv/rbenv.git  /var/opt/rbenv
 sudo chmod 777 -R /var/opt/rbenv/
-sudo chown -R $1 /var/opt/rbenv/
 
 echo 'export RBENV_ROOT=/var/opt/rbenv' | sudo tee -a '/etc/profile.d/rbenv.sh'
 echo 'export PATH=$RBENV_ROOT/bin:$PATH' | sudo tee -a '/etc/profile.d/rbenv.sh'
@@ -40,3 +39,5 @@ ruby -v
 # In case it fails with The Ruby openssl extension was not compiled used the following config.
 # export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/lib/ssl"
 # Or install this library apt install libssl1.0-dev
+
+sudo chown -R $1 /var/opt/rbenv/
