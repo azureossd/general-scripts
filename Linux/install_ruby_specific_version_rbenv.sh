@@ -9,7 +9,9 @@ export RUBY_VERSION=2.6.2
 echo "##### Installing Dependencies #####" 
 # Installing dependencies
 sudo apt update 
-sudo apt install -y curl git autoconf bison build-essential gcc libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev libsqlite3-dev
+sleep 15
+sudo apt install -y curl git autoconf bison build-essential gcc 
+sudo apt install -y libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev libsqlite3-dev
 
 # Installing nodejs
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - 
