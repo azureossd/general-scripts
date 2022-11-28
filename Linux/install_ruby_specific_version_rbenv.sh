@@ -4,7 +4,7 @@
 echo "##### Runnig script under $1 #####"
 
 # Set a specific Ruby version
-export RUBY_VERSION=2.6.2 
+export RUBY_VERSION=2.7.3 
 
 echo "##### Installing NodeJS and Yarn #####" 
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -

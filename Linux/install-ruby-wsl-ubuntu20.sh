@@ -27,7 +27,7 @@ else
 	    sudo apt install yarn
 fi
 
-export RUBY_VERSION=2.6.2 
+export RUBY_VERSION=2.7.3 
 sudo rm -rf /usr/local/share/rbenv
 sudo apt-get update 
 sudo apt-get install -y libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libsqlite3-dev
